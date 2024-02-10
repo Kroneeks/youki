@@ -1,7 +1,11 @@
-import React, { Component } from "react";
+import { memo } from "react";
 
-export default class App extends Component {
-  render() {
-    return <div>App</div>;
-  }
-}
+const App = memo(() => {
+  const ap1 = "";
+
+  return <div id="app">App</div>;
+});
+
+App.displayName = "App";
+
+export default App;
