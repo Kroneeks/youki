@@ -70,7 +70,11 @@
         "@typescript-eslint/prefer-nullish-coalescing": "warn",
         "n/no-callback-literal": "off"
     },
-    "ignorePatterns": ["webpack.config.ts", "**/config/**/*"],
+    "ignorePatterns": [
+        "webpack.config.ts",
+        "**/config/**/*",
+        "**/server/**/*.js"
+    ],
     "overrides": [
         {
             "files": ["**/src/**/*.{test, stories}.{ts,tsx}"],
