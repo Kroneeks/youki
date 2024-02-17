@@ -45,3 +45,32 @@
     --red-light: #f00;
     --red-dark: #7c0000;
 }
+
+body {
+    --bg-color: #F4F4FB;
+    --inverted-bg-color: #5e69ee;
+    --primary-color: #39AFEA;
+    --secondary-color: #2d8bb9;
+    --inverted-primary-color: #F4F4FB;
+    --inverted-secondary-color: #dfdfdf;
+    --skeleton-color: #fff;
+    --skeleton-shadow: rgba(0 0 0 / 20%);
+    --code-bg: #fff;
+    --card-bg: #e0e0e7;
+    --listbox-bg: #e0e0e7;
+    --input-border: #efefef;
+
+    // redesigned
+    --dark-bg-redesigned: #FFF3D6;
+    --bg-redesigned: #F0C048;
+    --light-bg-redesigned: #F2D791;
+    --text-redesigned: #1B1311;
+    --hint-redesigned: #B8B2A2;
+    --cancel-redesigned: #FF5E5E; 
+    --save-redesigned: #52FA81;
+    --icon-redesigned: #4875F0;
+    --accent-redesigned: #1D59FF;
+    --tui-accent: #ff7043;
+    --tui-accent-hover: #ff9a94;
+    --tui-accent-active: #e7716a;
+}
