@@ -4,6 +4,7 @@ import { createReducerManager } from './reducerManager';
 import { $api } from '@/shared/api/api';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { vocabularyReducer } from '@/entities/Vocabulary/model/slice/vocabularySlice';
+import { categoryReducer } from '@/entities/Category/model/slice/categorySlice';
 
 declare const $CombinedState: unique symbol;
 interface EmptyObject {
@@ -18,6 +19,7 @@ export function createReduxStore(
 ) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
+        category: categoryReducer,
         vocabulary: vocabularyReducer,
         [rtkApi.reducerPath]: rtkApi.reducer,
     };

@@ -1,7 +1,12 @@
 type VocabularyType = 'education' | 'entertainment' | 'news';
 
+export interface VocabularyItem {
+    kind?: string;
+    videoId: string;
+}
+
 export interface Vocabulary {
-    id: string;
+    id: VocabularyItem;
     keyword: string;
     type: VocabularyType;
 }

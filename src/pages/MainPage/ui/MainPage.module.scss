@@ -1,7 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
 .MainPage {
     box-sizing: border-box;
-    padding-top: 250px;
     overflow: visible;
+
+    .header {
+        width: fit-content;
+        position: relative;
+        display: inline-block;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    h3 {
+        font: 60px / 60px 'Dancing Script' ;
+        font-weight: 900;
+        color: #526ed3;
+        display: inline-block;
+        cursor: pointer;
+        text-align: center;
+        margin-top: 80px;
+    }
 }
 
 .searchBtn {

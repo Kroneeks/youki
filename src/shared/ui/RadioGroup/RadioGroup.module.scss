@@ -1,0 +1,18 @@
+.checked {
+    background-color: rgb(195, 195, 255);
+}
+
+.radioOption {
+    font-size: 14px;
+    color: var(--tui-text-01)
+}
+
+.radioOption:focus {
+    outline: none;
+
+    .input {
+        outline: auto;
+    }
+}
+
+.input:focus, .input:active {outline: none;}

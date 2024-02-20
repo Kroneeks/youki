@@ -9,8 +9,10 @@ import { NavigateOptions, To } from 'react-router-dom';
 import { AppDispatch } from './store';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { VocabularySchema } from '@/entities/Vocabulary/model/types/vocabulary';
+import { CategorySchema } from '@/entities/Category/model/types/category';
 
 export interface StateSchema {
+    category: CategorySchema;
     vocabulary: VocabularySchema;
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
