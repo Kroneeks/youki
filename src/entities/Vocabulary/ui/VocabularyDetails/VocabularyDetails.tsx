@@ -7,12 +7,14 @@ import {
 } from '../../model/selectors/getVocabularyByKeyword/getVocabularyByKeyword';
 import { memo, useEffect } from 'react';
 import YouTube from 'react-youtube';
-import { useCategoryValue } from '@/entities/Category/ui/CategorySelect';
 import { fetchVocabularyByKeyword } from '../../model/services/fetchVocabularyByKeyword/fetchVocabularyByKeyword';
+
+import { CATEGORY_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 
 interface VocabularyDetailsProps {
     className?: string;
     keyword?: string;
+    category?: string;
 }
 
 const VocubularyData = () => {
@@ -32,15 +34,19 @@ const VocubularyData = () => {
 // ))}
 
 const VocabularyDetails = memo((props: VocabularyDetailsProps) => {
-    const { className, keyword } = props;
+    const { className, keyword, category } = props;
     const dispatch = useAppDispatch();
     const isLoading = useSelector(getVocabularyIsLoading);
     const error = useSelector(getVocabularyError);
-    const categoryValue = useCategoryValue();
+    const categoryValue = sessionStorage.getItem(CATEGORY_LOCALSTORAGE_KEY);
 
     useEffect(() => {
-        void dispatch(fetchVocabularyByKeyword(`${categoryValue}/${keyword}`));
-    }, [categoryValue, keyword, dispatch]);
+        void dispatch(
+            fetchVocabularyByKeyword(
+                `${category}/${keyword?.replace(/_/g, ' ')}`,
+            ),
+        );
+    }, [categoryValue, keyword, category, dispatch]);
 
     let content;
 

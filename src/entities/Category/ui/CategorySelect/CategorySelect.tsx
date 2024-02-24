@@ -1,27 +1,46 @@
 import { RadioGroup } from '@/shared/ui/RadioGroup';
 import { memo, useEffect } from 'react';
 import { useCategoryActions } from '../../model/slice/categorySlice';
+import { Category } from '../../model/types/category';
+import { CATEGORY_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
+
+const getActiveCategory = () => {
+    return sessionStorage.getItem(CATEGORY_LOCALSTORAGE_KEY);
+};
+
+const setActiveCategory = (category: Category) => {
+    sessionStorage.setItem(CATEGORY_LOCALSTORAGE_KEY, category);
+};
 
 const CategorySelect = memo(() => {
     const { setCategory } = useCategoryActions();
-    const categories = ['Education', 'Entertainment', 'Fashion', 'News'];
-
-    const mapCategoriesToId: Record<string, string> = {
-        Education: '27',
-        Entertainment: '25',
-        Fashion: '23',
-        News: '21',
-    };
+    const categories: Category[] = [
+        Category.Education,
+        Category.Entertainment,
+        Category.Blogs,
+        Category.Science,
+        Category.News,
+    ];
 
     useEffect(() => {
-        setCategory(mapCategoriesToId.Education);
-    });
+        if (!getActiveCategory()) {
+            setCategory(Category.Education);
+            setActiveCategory(Category.Education);
+        }
+    }, [setCategory]);
 
     const onChangeCategory = (value: string) => {
-        setCategory(mapCategoriesToId[value]);
+        setCategory(value);
+        setActiveCategory(value as Category);
     };
 
-    return <RadioGroup items={categories} onChange={onChangeCategory} />;
+    return (
+        <RadioGroup
+            items={categories}
+            onChange={onChangeCategory}
+            active={getActiveCategory() ?? undefined}
+        />
+    );
 });
 
 CategorySelect.displayName = 'CategorySelect';

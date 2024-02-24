@@ -4,7 +4,8 @@
 
 .radioOption {
     font-size: 14px;
-    color: var(--tui-text-01)
+    color: var(--tui-text-01);
+    cursor: pointer;
 }
 
 .radioOption:focus {

@@ -6,12 +6,13 @@ import cls from './RadioGroup.module.scss';
 
 interface RadioGroupProps {
     items: string[];
+    active?: string;
     onChange: (item: string) => void;
 }
 
 export const RadioGroup = (props: RadioGroupProps) => {
-    const { items, onChange } = props;
-    const [value, setValue] = useState(items[0]);
+    const { items, active, onChange } = props;
+    const [value, setValue] = useState(active ?? items[0]);
     const { t } = useTranslation();
 
     const onChecked = (newValue: SetStateAction<string>) => {

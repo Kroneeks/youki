@@ -5,7 +5,7 @@ import {
     getRouteVocabulary,
 } from '@/shared/const/router';
 import { NotFoundPage } from '@/pages/NotFoundPage';
-import VocabularyPage from '@/pages/VocabularyPage/VocabularyPage';
+import VocabularyPage from '@/pages/VocabularyPage/ui/VocabularyPage';
 import { MainPage } from '@/pages/MainPage';
 
 export const routeConfig: Record<AppRoutes, AppRouteProps> = {
@@ -14,7 +14,7 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
         element: <MainPage />,
     },
     [AppRoutes.VOCABULARY]: {
-        path: getRouteVocabulary(':id'),
+        path: getRouteVocabulary(':category', ':id'),
         element: <VocabularyPage />,
     },
     [AppRoutes.NOT_FOUND]: {

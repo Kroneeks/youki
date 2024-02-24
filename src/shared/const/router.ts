@@ -5,9 +5,10 @@ export enum AppRoutes {
 }
 
 export const getRouteMain = () => '/';
-export const getRouteVocabulary = (id: string) => `/youtube/${id}`;
+export const getRouteVocabulary = (category: string, id: string) =>
+    `/youtube/${category}/${id}`;
 
 export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteMain()]: AppRoutes.MAIN,
-    [getRouteVocabulary(':id')]: AppRoutes.VOCABULARY,
+    [getRouteVocabulary(':category', ':id')]: AppRoutes.VOCABULARY,
 };
