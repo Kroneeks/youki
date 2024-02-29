@@ -2,40 +2,37 @@
     height: 100%;
     display: grid;
     grid-template-areas:
-        'sidebar content rightbar';
-    grid-template-columns: min-content 1fr 100px;
+        'toolbar content sidebar';
+    grid-template-columns: 56px 1fr 470px;
     overflow-y: auto;
+    
+    &.tablet {
+        grid-template-areas:
+            'toolbar content';
+        grid-template-columns: 56px 1fr;
+        height: 100svh;
+    }
 }
 
 .content {
     grid-area: content;
-    max-width: 1200px;
+    max-width: 800px;
     justify-self: center;
-    padding: 32px;
     width: 100%;
 }
 
-.rightbar,
 .sidebar {
-    position: sticky;
     top: 0;
-    height: 100vh;
-}
-
-.sidebar {
+    height: 100svh;
     grid-area: sidebar;
     padding: 32px;
-    max-width: 284px;
-}
-
-.rightbar {
-    grid-area: rightbar;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    background: var(--tui-secondary);
+    overflow: hidden;
 }
 
 .toolbar {
+    grid-area: toolbar;
     height: 100%;
     width: 100%;
+    background: var(--tui-secondary);
 }

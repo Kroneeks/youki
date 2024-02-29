@@ -6,10 +6,12 @@ import {
     getVocabularyIsLoading,
 } from '../../model/selectors/getVocabularyByKeyword/getVocabularyByKeyword';
 import { memo, useEffect } from 'react';
-import YouTube from 'react-youtube';
 import { fetchVocabularyByKeyword } from '../../model/services/fetchVocabularyByKeyword/fetchVocabularyByKeyword';
 
 import { CATEGORY_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { VStack } from '@/shared/ui/Stack';
+import cls from './VocabularyDetails.module.scss';
 
 interface VocabularyDetailsProps {
     className?: string;
@@ -20,18 +22,27 @@ interface VocabularyDetailsProps {
 const VocubularyData = () => {
     const vocabulary = useSelector(getVocabularyData);
 
+    const opts = {
+        playerVars: {
+            autoplay: 1,
+        },
+    };
+
     return (
-        <>
-            <YouTube
-                key={vocabulary?.[0]?.id.videoId ?? ''}
-                videoId={vocabulary?.[0]?.id.videoId ?? ''}
-            />
-        </>
+        <VStack align="center" className={cls.youtubeWrapper}>
+            <iframe
+                src={`https://www.youtube.com/embed/${vocabulary?.[0]?.id.videoId ?? ''}`}
+                allowFullScreen
+                className={cls.video}
+            ></iframe>
+        </VStack>
     );
 };
-// {vocabulary?.map((item) => (
-// <YouTube key={item.id.videoId} videoId={item.id.videoId} />
-// ))}
+// <YouTube
+// key={vocabulary?.[0]?.id.videoId ?? ''}
+// videoId={vocabulary?.[0]?.id.videoId ?? ''}
+// opts={opts}
+// />
 
 const VocabularyDetails = memo((props: VocabularyDetailsProps) => {
     const { className, keyword, category } = props;
@@ -51,7 +62,11 @@ const VocabularyDetails = memo((props: VocabularyDetailsProps) => {
     let content;
 
     if (isLoading) {
-        content = <div>Loading...</div>;
+        content = (
+            <VStack align="center" className={cls.youtubeWrapper}>
+                <Skeleton width="100%" height="100%" className={cls.video} />
+            </VStack>
+        );
     } else if (error) {
         content = (
             <div>
@@ -60,10 +75,6 @@ const VocabularyDetails = memo((props: VocabularyDetailsProps) => {
         );
     } else {
         content = <VocubularyData />;
-    }
-
-    if (isLoading) {
-        return <div>Loading...</div>;
     }
 
     return <div>{content}</div>;

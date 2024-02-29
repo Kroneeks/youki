@@ -18,7 +18,7 @@ const MainPage = () => {
                     <Page className={cls.MainPage}>
                         <VStack gap="64" align="stretch">
                             <AppLink
-                                to={`/youtube/${category}/${header.replace(/ /g, '_')}`}
+                                to={`/youtube/${category}/${header.replace(/ /g, '_')?.toLowerCase()}`}
                                 className={cls.header}
                             >
                                 <h3>{header}</h3>

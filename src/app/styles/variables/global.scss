@@ -84,9 +84,9 @@ body {
     --input-border: #efefef;
 
     // redesigned
-    --dark-bg-redesigned: #FFF3D6;
-    --bg-redesigned: #F0C048;
-    --light-bg-redesigned: #F2D791;
+    --dark-bg-redesigned: #ffefef;
+    --bg-redesigned: #faa68c;
+    --light-bg-redesigned: #ffd7d4;
     --text-redesigned: #1B1311;
     --hint-redesigned: #B8B2A2;
     --cancel-redesigned: #FF5E5E; 
@@ -99,4 +99,11 @@ body {
     --tui-text-01: #1b1f3b;
     --tui-text-02: rgba(27, 31, 59, .65);
     --tui-text-03: rgba(27, 31, 59, .4);
+    --tui-primary: #526ed3;
+    --tui-primary-hover: #6c86e2;
+    --tui-primary-active: #314692;
+    --tui-primary-text: #fff;
+    --tui-secondary: #ebefff;
+    --tui-secondary-hover: #dfe3f3;
+    --tui-secondary-active: #d8ddf2;
 }

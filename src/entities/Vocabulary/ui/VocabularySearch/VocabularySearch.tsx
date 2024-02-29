@@ -26,7 +26,7 @@ const VocabularySearch = memo((props: VocabularySearchProps) => {
             <HStack gap="16">
                 <Input value={value} onChange={onChange} size="m" />
                 <AppLink
-                    to={`/youtube/${category}/${value.replace(/ /g, '_')}`}
+                    to={`/youtube/${category}/${value.replace(/ /g, '_')?.toLowerCase()}`}
                     className={cls.searchLink}
                 >
                     <Button

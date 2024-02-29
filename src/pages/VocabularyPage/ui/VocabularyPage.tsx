@@ -6,10 +6,12 @@ import {
 import { vocabularyReducer } from '@/entities/Vocabulary/model/slice/vocabularySlice';
 import { VocabularyDetails } from '@/entities/Vocabulary/ui/VocabularyDetails/VocabularyDetails';
 import { VocabularySearch } from '@/entities/Vocabulary/ui/VocabularySearch/VocabularySearch';
-import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { Page } from '@/widgets/Page';
 import cls from './VocabularyPage.module.scss';
 import { VStack } from '@/shared/ui/Stack';
+import { Toolbar } from '@/widgets/Toolbar';
+import { MainLayout } from '@/shared/layouts/MainLayout';
+import { Sidebar } from '@/widgets/Sidebar/ui/Sidebar';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -34,7 +36,9 @@ const VocabularyPage = ({ className = '' }: ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <StickyContentLayout
+            <MainLayout
+                className={cls.VocabularyPageLayout}
+                toolbar={<Toolbar />}
                 content={
                     <Page className={cls.VocabularyPage}>
                         <VStack gap="32" align="stretch">
@@ -48,6 +52,7 @@ const VocabularyPage = ({ className = '' }: ArticleDetailsPageProps) => {
                         </VStack>
                     </Page>
                 }
+                sidebar={<Sidebar />}
             />
         </DynamicModuleLoader>
     );
