@@ -12,6 +12,7 @@ import { CATEGORY_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { VStack } from '@/shared/ui/Stack';
 import cls from './VocabularyDetails.module.scss';
+import { getVocabularyChecked } from '../../model/selectors/getVocabularyChecked/getVocabularyChecked';
 
 interface VocabularyDetailsProps {
     className?: string;
@@ -21,28 +22,18 @@ interface VocabularyDetailsProps {
 
 const VocubularyData = () => {
     const vocabulary = useSelector(getVocabularyData);
-
-    const opts = {
-        playerVars: {
-            autoplay: 1,
-        },
-    };
+    const checked = useSelector(getVocabularyChecked);
 
     return (
         <VStack align="center" className={cls.youtubeWrapper}>
             <iframe
-                src={`https://www.youtube.com/embed/${vocabulary?.[0]?.id.videoId ?? ''}`}
+                src={`https://www.youtube.com/embed/${vocabulary?.[checked]?.id.videoId ?? ''}`}
                 allowFullScreen
                 className={cls.video}
             ></iframe>
         </VStack>
     );
 };
-// <YouTube
-// key={vocabulary?.[0]?.id.videoId ?? ''}
-// videoId={vocabulary?.[0]?.id.videoId ?? ''}
-// opts={opts}
-// />
 
 const VocabularyDetails = memo((props: VocabularyDetailsProps) => {
     const { className, keyword, category } = props;
