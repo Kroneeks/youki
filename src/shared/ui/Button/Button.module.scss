@@ -1,0 +1,140 @@
+.Button {
+    cursor: pointer;
+    color: var(--text-redesigned);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 12px;
+
+    .addonLeft svg, .addonRight svg {
+        color: var(--hint-redesigned);
+    }
+
+    &:hover {
+        color: var(--accent-redesigned);
+
+        .addonLeft svg, .addonRight svg {
+            color: var(--accent-redesigned);
+        }
+    }
+
+    .withAddonLeft {
+        padding-left: 8px;
+    }
+
+    .withAddonRight {
+        padding-right: 8px;
+    }
+}
+
+.addonLeft, .addonRight {
+    display: flex;
+}
+
+.clear {
+    padding: 0;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.filled {
+    background: var(--tui-accent);
+    border: none;
+    outline: none;
+
+    &:hover {
+        background: var(--tui-accent-hover);
+    }
+}
+
+.outline {
+    background: none;
+    border: 2px solid var(--icon-redesigned);
+
+    &:hover {
+        border-color: var(--accent-redesigned);
+    }
+
+    &.normal {
+        border-color: var(--icon-redesigned);
+    }
+
+    &.error {
+        border-color: var(--cancel-redesigned);
+
+        &:hover {
+            color: var(--cancel-redesigned);
+        }
+    }
+
+    &.success {
+        border-color: var(--save-redesigned);
+
+        &:hover {
+            color: var(--save-redesigned);
+        }
+    }
+}
+
+.outline_red {
+    background: none;
+    border: 2px solid var(--red-light);
+    color: var(--red-light);
+
+    &:hover {
+        border-color: var(--red-dark);
+        color: var(--red-dark);
+    }
+}
+
+.square {
+    padding: 0;
+}
+
+.square.m {
+    width: var(--font-line-m);
+    height: var(--font-line-m);
+}
+
+.square.l {
+    width: var(--font-line-l);
+    height: var(--font-line-l);
+}
+
+.square.xl {
+    width: var(--font-line-xl);
+    height: var(--font-line-xl);
+}
+
+.m {
+    font: var(--font-m-redesigned);
+}
+
+.l {
+    font: var(--font-l-redesigned);
+}
+
+.xl {
+    font: var(--font-xl-redesigned);
+}
+
+.disabled {
+    opacity: 0.5;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.noneRadius {
+    border-radius: 0;
+}
+
+.smRadius {
+    border-radius: 10px;
+}
+
+.mRadius {
+    border-radius: 20px;
+}

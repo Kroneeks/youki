@@ -43,10 +43,16 @@ export function buildLoaders(options: buildOptions): RuleSetRule[] {
         ],
     };
 
+    const fontLoader = {
+        test: /\.(woff(2)?|ttf)(\?v=\d+\.\d+\.\d+)?$/,
+        type: 'asset/resource',
+    };
+
     const cssLoader = buildCssLoader(isDev);
 
     return [
         fileLoader,
+        fontLoader,
         svgLoader,
         codeBabelLoader,
         tsxCodeBabelLoader,

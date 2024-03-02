@@ -1,0 +1,38 @@
+.MainLayout {
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+        'toolbar content sidebar';
+    grid-template-columns: 56px 1fr 470px;
+    overflow-y: auto;
+    
+    &.tablet {
+        grid-template-areas:
+            'toolbar content';
+        grid-template-columns: 56px 1fr;
+        height: 100svh;
+    }
+}
+
+.content {
+    grid-area: content;
+    max-width: 800px;
+    justify-self: center;
+    width: 100%;
+}
+
+.sidebar {
+    top: 0;
+    height: 100svh;
+    grid-area: sidebar;
+    padding: 32px;
+    background: var(--tui-secondary);
+    overflow: hidden;
+}
+
+.toolbar {
+    grid-area: toolbar;
+    height: 100%;
+    width: 100%;
+    background: var(--tui-secondary);
+}

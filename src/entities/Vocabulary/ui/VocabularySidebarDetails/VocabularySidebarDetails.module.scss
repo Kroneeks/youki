@@ -1,0 +1,42 @@
+.details {
+    cursor: pointer;
+}
+
+.marker {
+    font: var(--font-sm-redesigned);
+    background: none;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: 0.1s ease all;
+}
+
+.label {
+    font: var(--font-sm-redesigned);
+    color: var(--tui-link-hover);
+}
+ 
+.details:hover {
+
+    .marker {
+        background: var(--tui-secondary-hover);
+    }
+
+    .label {
+        font: var(--font-sm-redesigned);
+    }
+}
+
+.details.checked {
+    .marker {
+        background: var(--tui-primary);
+        color: var(--tui-primary-text);
+    }
+
+    .label {
+        color: var(--tui-text-01);
+    }
+}
